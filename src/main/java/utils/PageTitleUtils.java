@@ -1,0 +1,15 @@
+package utils;
+
+public class PageTitleUtils {
+
+    public static final String WHATS_NEW = "What's New";
+    public static final String WOMEN = "Women";
+    public static final String MEN = "Men";
+    public static final String GEAR = "Gear";
+    public static final String TRAINING = "Training";
+    public static final String SALE = "Sale";
+
+
+
+
+}
