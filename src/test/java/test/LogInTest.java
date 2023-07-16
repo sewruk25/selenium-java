@@ -1,5 +1,7 @@
 package test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeMethod;
@@ -15,13 +17,10 @@ public class LogInTest extends BaseTest {
     MyAccountPage myAccountPage;
 
     @BeforeMethod
-    public void setup(){
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\skejt\\OneDrive\\Pulpit\\drajwer\\chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized");
-
-        driver = new ChromeDriver(options);
-        options.addArguments("start-maximized");
+    public void setup() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
 
         driver.get("https://magento.softwaretestingboard.com/customer/account/login/referer/");
 
@@ -33,7 +32,7 @@ public class LogInTest extends BaseTest {
 
     @Test
     public void signIn() {
-        logInPage.signIn("","");
+        logInPage.signIn("", "");
         myAccountPage.verifyPageTitle();
     }
 
