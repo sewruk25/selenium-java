@@ -14,7 +14,11 @@ public class HeaderPage extends BasePage{
 
     public HeaderPage(WebDriver driver) {
         super(driver);
+        itemPage = new ItemPage(driver);
     }
+    ItemPage itemPage;
+
+
 
     @FindBy(xpath = "//span[@class='base']")
     protected WebElement titlePage;
@@ -30,6 +34,12 @@ public class HeaderPage extends BasePage{
     protected WebElement lnkTraining;
     @FindBy(id="ui-id-8")
     protected WebElement lnkSale;
+    @FindBy(xpath = "//a[@class='action showcart']")
+    protected WebElement lnkShowCart;
+    @FindBy(xpath = "//span[@class='minicart-price']")
+    protected WebElement oneItemPrice;
+    @FindBy(xpath ="//span[@data-bind='html: cart().subtotal_excl_tax']" )
+    protected WebElement sumPrice;
 
     public void verifylnkWhatsNew(){
         wait.until(ExpectedConditions.elementToBeClickable(lnkWhatsNew)).click();
@@ -55,6 +65,29 @@ public class HeaderPage extends BasePage{
         wait.until(ExpectedConditions.elementToBeClickable(lnkSale)).click();
         Assert.assertEquals(titlePage.getText(), PageTitleUtils.SALE);
     }
+
+    public void showCart() throws InterruptedException {
+        Thread.sleep(5000);
+        wait.until(ExpectedConditions.elementToBeClickable(lnkShowCart)).click();
+    }
+
+    public int getPrice() throws InterruptedException {
+        Thread.sleep(5000);
+        String cena = oneItemPrice.getText().substring(1, 3);
+        return Integer.parseInt(cena);
+    }
+
+    public String multiplyPrice() throws InterruptedException {
+        return Integer.toString(2*getPrice());
+    }
+    public String cutPrice(){
+        return sumPrice.getText().substring(1,4);
+    }
+    public void verifyPriceInCart() throws InterruptedException {
+        Assert.assertEquals(cutPrice(),multiplyPrice());
+    }
+
+
 
 
 
