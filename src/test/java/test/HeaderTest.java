@@ -34,6 +34,8 @@ public class HeaderTest extends BaseTest {
         headerPage.verifylnkTraining();
         headerPage.verifylnkSale();
     }
+
+
 }
 
 
