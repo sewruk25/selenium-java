@@ -1,6 +1,8 @@
 package pages;
 
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,7 +21,10 @@ public class HeaderPage extends BasePage{
     ItemPage itemPage;
 
 
-
+    @FindBy(id="search")
+    protected WebElement inputSearch;
+    @FindBy(xpath = "//button[@class='action search']")
+    protected WebElement btnSearch;
     @FindBy(xpath = "//span[@class='base']")
     protected WebElement titlePage;
     @FindBy(id="ui-id-3")
@@ -40,6 +45,8 @@ public class HeaderPage extends BasePage{
     protected WebElement oneItemPrice;
     @FindBy(xpath ="//span[@data-bind='html: cart().subtotal_excl_tax']" )
     protected WebElement sumPrice;
+    @FindBy (id="top-cart-btn-checkout")
+    protected WebElement btnToCheckoutCart;
 
     public void verifylnkWhatsNew(){
         wait.until(ExpectedConditions.elementToBeClickable(lnkWhatsNew)).click();
@@ -78,7 +85,7 @@ public class HeaderPage extends BasePage{
     }
 
     public String multiplyPrice() throws InterruptedException {
-        return Integer.toString(2*getPrice());
+        return Integer.toString(6*getPrice());
     }
     public String cutPrice(){
         return sumPrice.getText().substring(1,4);
@@ -86,9 +93,16 @@ public class HeaderPage extends BasePage{
     public void verifyPriceInCart() throws InterruptedException {
         Assert.assertEquals(cutPrice(),multiplyPrice());
     }
+    public void searchFor(String itemName){
+        wait.until(ExpectedConditions.elementToBeClickable(inputSearch)).sendKeys(itemName);
+        inputSearch.sendKeys(Keys.ENTER);
+    }
+    public void goToCheckout(){
+        wait.until(ExpectedConditions.elementToBeClickable(btnToCheckoutCart)).click();
+    }
 
 
-
+//    Aero Daily Fitness Tee
 
 
 

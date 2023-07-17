@@ -13,6 +13,8 @@ public class ItemTest extends BaseTest{
 
     HeaderPage headerPage;
     ItemPage itemPage;
+    private WebDriver driver;
+
 
     @BeforeMethod
     public void setup(){
@@ -21,13 +23,16 @@ public class ItemTest extends BaseTest{
         driver.manage().window().maximize();
         driver.get("https://magento.softwaretestingboard.com/juno-jacket.html#");
 
+
         headerPage = new HeaderPage(driver);
         itemPage = new ItemPage(driver);
+
+
 
     }
     @Test
     public void addToCartAndVerifyPrice() throws InterruptedException {
-        itemPage.setupAndAddToCart();
+        itemPage.setupAndAddToCartWithAssertions("6");
         headerPage.showCart();
         headerPage.verifyPriceInCart();
     }

@@ -24,20 +24,27 @@ public class ItemPage extends BasePage {
     @FindBy(id = "option-label-size-143-item-169")
     protected WebElement selectSize;
     @FindBy(id = "option-label-color-93-item-50")
-    protected WebElement selectColor;
+    protected WebElement selectColorBlue;
+    @FindBy(id="option-label-color-93-item-49")
+    protected WebElement selectColorBlack;
     @FindBy(id = "qty")
     protected WebElement inputQuantity;
     @FindBy(xpath = "(//span[@class='price'])[1]")
     protected WebElement price;
 
 
-    public void setupAndAddToCart() {
+    public void setupAndAddToCartWithAssertions(String qnt) {
         wait.until(ExpectedConditions.elementToBeClickable(selectSize)).click();
         Assert.assertEquals(selectedSize.getText(), "L");
-        selectColor.click();
+        selectColorBlue.click();
         Assert.assertEquals(selectedColor.getText(), "Blue");
         inputQuantity.clear();
-        inputQuantity.sendKeys("2");
+        inputQuantity.sendKeys(qnt);
+        wait.until(ExpectedConditions.elementToBeClickable(btnAddToCart)).click();
+    }
+    public void setupAndAddToCart(){
+        wait.until(ExpectedConditions.elementToBeClickable(selectSize)).click();
+        selectColorBlack.click();
         wait.until(ExpectedConditions.elementToBeClickable(btnAddToCart)).click();
     }
 

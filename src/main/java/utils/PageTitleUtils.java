@@ -8,6 +8,7 @@ public class PageTitleUtils {
     public static final String GEAR = "Gear";
     public static final String TRAINING = "Training";
     public static final String SALE = "Sale";
+    public static final String PURCHASE_CONFIRMATION="Thank you for your purchase!";
 
 
 
