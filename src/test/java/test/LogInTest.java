@@ -30,7 +30,7 @@ public class LogInTest extends BaseTest {
 
     }
 
-    @Test
+    @Test(testName = "trzeci")
     public void signIn() {
         logInPage.signIn("", "");
         myAccountPage.verifyPageTitle();

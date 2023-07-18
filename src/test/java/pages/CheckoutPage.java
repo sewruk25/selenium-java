@@ -38,16 +38,18 @@ public class CheckoutPage extends BasePage{
     protected WebElement btnContinue;
     @FindBy(id="billing-address-same-as-shipping-checkmo")
     protected WebElement chkConfirmAddres;
-    @FindBy(xpath = "//button[@title='f']")
+    @FindBy(xpath = "//button[@title='Place Order']")
     protected WebElement btnPlaceOrder;
     @FindBy(xpath = "//span[@class='base']")
     protected WebElement purchaseConfirmation;
+    @FindBy(xpath = "//body[@aria-busy='true']")
+    protected WebElement placeOrderLoader;
 
 
 
     public void setShippingAddress(String email,String name, String lastName, String address, String city, String zipCode, String phone) throws InterruptedException {
         Thread.sleep(5000);
-        wait.until(ExpectedConditions.elementToBeClickable(inputEmail)).sendKeys(email);
+        inputEmail.sendKeys(email);
         intputFirstName.sendKeys(name);
         inputLastName.sendKeys(lastName);
         inputAddress.sendKeys(address);
@@ -60,8 +62,9 @@ public class CheckoutPage extends BasePage{
         inputPhone.sendKeys(phone);
         radioFlatRate.click();
         btnContinue.click();
-        wait.until(ExpectedConditions.elementToBeClickable(chkConfirmAddres)).click();
+        wait.until(ExpectedConditions.invisibilityOf(placeOrderLoader));
         btnPlaceOrder.click();
+        wait.until(ExpectedConditions.invisibilityOf(placeOrderLoader));
         wait.until(ExpectedConditions.visibilityOf(purchaseConfirmation));
         Assert.assertEquals(purchaseConfirmation.getText(), PageTitleUtils.PURCHASE_CONFIRMATION);
     }

@@ -47,6 +47,8 @@ public class HeaderPage extends BasePage{
     protected WebElement sumPrice;
     @FindBy (id="top-cart-btn-checkout")
     protected WebElement btnToCheckoutCart;
+    @FindBy (xpath = "//div[@class='loading-mask']")
+    protected WebElement cartLoader;
 
     public void verifylnkWhatsNew(){
         wait.until(ExpectedConditions.elementToBeClickable(lnkWhatsNew)).click();
@@ -74,8 +76,9 @@ public class HeaderPage extends BasePage{
     }
 
     public void showCart() throws InterruptedException {
-        Thread.sleep(5000);
-        wait.until(ExpectedConditions.elementToBeClickable(lnkShowCart)).click();
+        wait.until(ExpectedConditions.invisibilityOf(cartLoader));
+//        wait.until(ExpectedConditions.elementToBeClickable(lnkShowCart)).click();
+        lnkShowCart.click();
     }
 
     public int getPrice() throws InterruptedException {

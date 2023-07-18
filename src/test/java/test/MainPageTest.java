@@ -33,7 +33,7 @@ public class MainPageTest {
 //        mainPage.pointAtFirstLatest();
 //    }
 
-    @Test
+    @Test(testName = "czwarty")
     public void offlineShopingProcess() throws InterruptedException {
         headerPage.searchFor("Aero Daily Fitness Tee");
         searchResultsPage.selectFirstResult();
@@ -44,6 +44,8 @@ public class MainPageTest {
                 "40600","123123123");
 
     }
+
+
 
 
 

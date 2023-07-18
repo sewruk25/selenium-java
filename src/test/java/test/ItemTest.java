@@ -13,7 +13,6 @@ public class ItemTest extends BaseTest{
 
     HeaderPage headerPage;
     ItemPage itemPage;
-    private WebDriver driver;
 
 
     @BeforeMethod
@@ -28,9 +27,8 @@ public class ItemTest extends BaseTest{
         itemPage = new ItemPage(driver);
 
 
-
     }
-    @Test
+    @Test(testName = "drugi")
     public void addToCartAndVerifyPrice() throws InterruptedException {
         itemPage.setupAndAddToCartWithAssertions("6");
         headerPage.showCart();

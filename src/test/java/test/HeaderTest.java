@@ -25,7 +25,7 @@ public class HeaderTest extends BaseTest {
 
     }
 
-    @Test
+    @Test (testName = "pierwszy")
     public void verifyLinking(){
         headerPage.verifylnkWhatsNew();
         headerPage.verifylnkWomen();
