@@ -35,5 +35,4 @@ public class ItemTest extends BaseTest{
         headerPage.verifyPriceInCart();
     }
 
-
 }

@@ -69,5 +69,4 @@ public class CheckoutPage extends BasePage{
         Assert.assertEquals(purchaseConfirmation.getText(), PageTitleUtils.PURCHASE_CONFIRMATION);
     }
 
-
 }

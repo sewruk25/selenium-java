@@ -36,7 +36,4 @@ public class LogInTest extends BaseTest {
         myAccountPage.verifyPageTitle();
     }
 
-
-
-
 }
