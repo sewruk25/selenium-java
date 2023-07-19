@@ -47,6 +47,7 @@ public class CheckoutPage extends BasePage{
 
 
 
+
     public void setShippingAddress(String email,String name, String lastName, String address, String city, String zipCode, String phone) throws InterruptedException {
         Thread.sleep(5000);
         inputEmail.sendKeys(email);
@@ -68,5 +69,6 @@ public class CheckoutPage extends BasePage{
         wait.until(ExpectedConditions.visibilityOf(purchaseConfirmation));
         Assert.assertEquals(purchaseConfirmation.getText(), PageTitleUtils.PURCHASE_CONFIRMATION);
     }
+
 
 }

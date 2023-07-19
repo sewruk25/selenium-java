@@ -20,4 +20,5 @@ public class SearchResultsPage extends BasePage{
     public void selectFirstResult(){
         wait.until(ExpectedConditions.elementToBeClickable(firstResult)).click();
     }
+
 }
