@@ -1,43 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="PROJEKT TESTOWY">
-    <test thread-count="1"  name="pierwszy">
+<suite name="TestAll">
+    <test  name="pierwszy">
         <classes>
-            <class name="test.HeaderTest">
-                <methods>
-                    <include name="verifyLinking"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test thread-count="1"  name="drugi">
-        <classes>
-            <class name="test.ItemTest">
-                <methods>
-                    <include name="addToCartAndVerifyPrice"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test thread-count="1"  name="trzeci">
-        <classes>
-            <class name="test.LogInTest">
-                <methods>
-                    <include name="signIn"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test thread-count="1"  name="czwarty">
-        <classes>
-            <class name="test.MainPageTest">
-                <methods>
-                    <include name="offlineShopingProcess"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+            <class name="test.HeaderTest"/>
+            <class name="test.ItemTest"/>
+            <class name="test.LogInTest"/>
+            <class name="test.MainPageTest"/>
 
-
+        </classes>
+    </test>
 </suite>
 
