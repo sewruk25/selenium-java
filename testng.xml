@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="TestAll">
-    <test  name="pierwszy">
+    <test  name="testy">
         <classes>
             <class name="test.HeaderTest"/>
             <class name="test.ItemTest"/>
             <class name="test.LogInTest"/>
             <class name="test.MainPageTest"/>
-
         </classes>
     </test>
 </suite>

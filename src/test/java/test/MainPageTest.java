@@ -4,8 +4,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.*;
+import utility.ReadXLSdata;
 
 public class MainPageTest {
 
@@ -14,8 +16,9 @@ public class MainPageTest {
     SearchResultsPage searchResultsPage;
     ItemPage itemPage;
     CheckoutPage checkOutPage;
+
     @BeforeMethod
-    public void setup(){
+    public void setup() {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -33,15 +36,15 @@ public class MainPageTest {
 //        mainPage.pointAtFirstLatest();
 //    }
 
-    @Test(testName = "czwarty")
-    public void offlineShopingProcess() throws InterruptedException {
-        headerPage.searchFor("Aero Daily Fitness Tee");
+    @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
+    public void offlineShopingProcess(String itemName, String email, String name, String lastName, String address,
+                                      String city, String zipCode, String phone) throws InterruptedException {
+        headerPage.searchFor(itemName);
         searchResultsPage.selectFirstResult();
         itemPage.setupAndAddToCart();
         headerPage.showCart();
         headerPage.goToCheckout();
-        checkOutPage.setShippingAddress("kacper@test.pl","kacper","test","Polna 2","Sopot",
-                "40600","123123123");
+        checkOutPage.setShippingAddress(email, name, lastName, address, city, zipCode, phone);
 
     }
 

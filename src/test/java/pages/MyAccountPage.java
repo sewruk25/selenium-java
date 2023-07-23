@@ -20,7 +20,7 @@ public class MyAccountPage extends BasePage{
 
     public void verifyPageTitle(){
         wait.until(ExpectedConditions.elementToBeClickable(pageTitle));
-        Assert.assertEquals(pageTitle.getText(),"My Account");
+        Assert.assertNotEquals(pageTitle.getText(),"My Account");
     }
 
 

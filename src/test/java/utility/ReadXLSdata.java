@@ -25,10 +25,10 @@ public class ReadXLSdata {
 
         // Musimy dodać taką logikę żeby nasza metoda która będzie odczytywać excela nie była podatna na dynamiczne zmiany pliku
         int totalRows = sheetName.getLastRowNum(); // zwracamy liczbe wierszy w pliku
-        System.out.println(totalRows);
+//        System.out.println(totalRows); sprawdzam czy zwraca się tyle ile powinno
         Row rowCells = sheetName.getRow(0);
         int totalCollumns = rowCells.getLastCellNum(); // ilośc kolumn w wierszu
-        System.out.println(totalCollumns);
+//        System.out.println(totalCollumns); sprawdzam czy zwraca się tyle ile powinno
 
         //Muszę sformatować dane z excela
         DataFormatter format = new DataFormatter();

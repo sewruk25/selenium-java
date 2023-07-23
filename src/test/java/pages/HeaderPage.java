@@ -79,6 +79,7 @@ public class HeaderPage extends BasePage{
         wait.until(ExpectedConditions.invisibilityOf(cartLoader));
 //        wait.until(ExpectedConditions.elementToBeClickable(lnkShowCart)).click();
         lnkShowCart.click();
+        Thread.sleep(1500);
     }
 
     public int getPrice() throws InterruptedException {
