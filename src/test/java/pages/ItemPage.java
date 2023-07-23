@@ -33,11 +33,11 @@ public class ItemPage extends BasePage {
     protected WebElement price;
 
 
-    public void setupAndAddToCartWithAssertions(String qnt) {
+    public void setupAndAddToCartWithAssertions(String size, String color, String qnt) {
         wait.until(ExpectedConditions.elementToBeClickable(selectSize)).click();
-        Assert.assertEquals(selectedSize.getText(), "L");
+        Assert.assertEquals(selectedSize.getText(), size);
         selectColorBlue.click();
-        Assert.assertEquals(selectedColor.getText(), "Blue");
+        Assert.assertEquals(selectedColor.getText(), color);
         inputQuantity.clear();
         inputQuantity.sendKeys(qnt);
         wait.until(ExpectedConditions.elementToBeClickable(btnAddToCart)).click();

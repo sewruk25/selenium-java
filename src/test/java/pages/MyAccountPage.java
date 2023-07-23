@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.PageTitleUtils;
 
 public class MyAccountPage extends BasePage{
 
@@ -20,7 +21,7 @@ public class MyAccountPage extends BasePage{
 
     public void verifyPageTitle(){
         wait.until(ExpectedConditions.elementToBeClickable(pageTitle));
-        Assert.assertNotEquals(pageTitle.getText(),"My Account");
+        Assert.assertNotEquals(pageTitle.getText(), PageTitleUtils.MY_ACCOUNT);
     }
 
 

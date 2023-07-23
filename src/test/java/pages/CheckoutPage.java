@@ -48,7 +48,8 @@ public class CheckoutPage extends BasePage{
 
 
 
-    public void setShippingAddress(String email,String name, String lastName, String address, String city, String zipCode, String phone) throws InterruptedException {
+    public void setShippingAddress(String email,String name, String lastName, String address, String city, String state,
+                                   String zipCode, String phone) throws InterruptedException {
         Thread.sleep(5000);
         inputEmail.sendKeys(email);
         intputFirstName.sendKeys(name);
@@ -57,7 +58,7 @@ public class CheckoutPage extends BasePage{
         inputCity.sendKeys(city);
 
         Select select = new Select(selectRegion);
-        select.selectByVisibleText("Alabama");
+        select.selectByVisibleText(state);
 
         inputZipCode.sendKeys(zipCode);
         inputPhone.sendKeys(phone);

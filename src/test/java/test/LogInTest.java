@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HeaderPage;
@@ -28,7 +29,6 @@ public class LogInTest extends BaseTest {
         logInPage = new LogInPage(driver);
         myAccountPage = new MyAccountPage(driver);
 
-
     }
 
     @Test(dataProviderClass = ReadXLSdata.class,dataProvider = "testdata")
@@ -36,12 +36,6 @@ public class LogInTest extends BaseTest {
         logInPage.signIn(login, password);
         myAccountPage.verifyPageTitle();
     }
-    @Test(testName = "poimty")
-    public void signInn() {
-        logInPage.signIn("", "");
-        myAccountPage.verifyPageTitle();
-    }
-
 
 
 }

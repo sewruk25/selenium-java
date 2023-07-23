@@ -13,11 +13,11 @@ public class BaseTest {
     protected WebDriver driver;
 
 
-    @AfterMethod
-    public void teardown(){
-        if (driver != null){
-            driver.close();
-        }
-    }
+//    @AfterMethod
+//    public void teardown(){
+//        if (driver != null){
+//            driver.close();
+//        }
+//    }
 }
 

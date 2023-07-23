@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HeaderPage;
 import pages.ItemPage;
+import utility.ReadXLSdata;
 
 public class ItemTest extends BaseTest{
 
@@ -28,9 +29,9 @@ public class ItemTest extends BaseTest{
 
 
     }
-    @Test(testName = "drugi")
-    public void addToCartAndVerifyPrice() throws InterruptedException {
-        itemPage.setupAndAddToCartWithAssertions("6");
+    @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
+    public void addToCartAndVerifyPrice(String size, String color, String qnt) throws InterruptedException {
+        itemPage.setupAndAddToCartWithAssertions(size, color, qnt);
         headerPage.showCart();
         headerPage.verifyPriceInCart();
     }

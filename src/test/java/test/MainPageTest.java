@@ -38,13 +38,13 @@ public class MainPageTest {
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
     public void offlineShopingProcess(String itemName, String email, String name, String lastName, String address,
-                                      String city, String zipCode, String phone) throws InterruptedException {
+                                      String city, String state, String zipCode, String phone) throws InterruptedException {
         headerPage.searchFor(itemName);
         searchResultsPage.selectFirstResult();
         itemPage.setupAndAddToCart();
         headerPage.showCart();
         headerPage.goToCheckout();
-        checkOutPage.setShippingAddress(email, name, lastName, address, city, zipCode, phone);
+        checkOutPage.setShippingAddress(email, name, lastName, address, city, state, zipCode, phone);
 
     }
 
