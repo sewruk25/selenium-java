@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import pages.HeaderPage;
 import pages.LogInPage;
 import pages.MyAccountPage;
+import utility.ReadXLSdata;
 
 public class LogInTest extends BaseTest {
 
@@ -30,11 +31,17 @@ public class LogInTest extends BaseTest {
 
     }
 
-    @Test(testName = "trzeci")
-    public void signIn() {
+    @Test(dataProviderClass = ReadXLSdata.class,dataProvider = "testdata")
+    public void signIn(String login, String password) {
+        logInPage.signIn(login, password);
+        myAccountPage.verifyPageTitle();
+    }
+    @Test(testName = "poimty")
+    public void signInn() {
         logInPage.signIn("", "");
         myAccountPage.verifyPageTitle();
     }
+
 
 
 }
