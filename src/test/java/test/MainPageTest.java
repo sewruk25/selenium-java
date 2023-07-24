@@ -45,7 +45,14 @@ public class MainPageTest {
         headerPage.showCart();
         headerPage.goToCheckout();
         checkOutPage.setShippingAddress(email, name, lastName, address, city, state, zipCode, phone);
+    }
 
+    @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
+    public void writeReview(String itemname, String nick, String summary, String content) throws InterruptedException {
+        headerPage.searchFor(itemname);
+        searchResultsPage.selectFirstResult();
+        itemPage.openReviewTap();
+        itemPage.setReviewAndSubmit(nick, summary, content);
     }
 
 
