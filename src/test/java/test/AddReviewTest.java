@@ -4,13 +4,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.*;
 import utility.ReadXLSdata;
 
-public class MainPageTest {
-
+public class AddReviewTest {
     MainPage mainPage;
     HeaderPage headerPage;
     SearchResultsPage searchResultsPage;
@@ -31,22 +29,13 @@ public class MainPageTest {
         checkOutPage = new CheckoutPage(driver);
 
     }
-//    @Test
-//    public void trial(){
-//        mainPage.pointAtFirstLatest();
-//    }
-
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void offlineShopingProcess(String itemName, String email, String name, String lastName, String address,
-                                      String city, String state, String zipCode, String phone) throws InterruptedException {
-        headerPage.searchFor(itemName);
+    public void writeReview(String itemname, String nick, String summary, String content) throws InterruptedException {
+        headerPage.searchFor(itemname);
         searchResultsPage.selectFirstResult();
-        itemPage.setupAndAddToCart();
-        headerPage.showCart();
-        headerPage.goToCheckout();
-        checkOutPage.setShippingAddress(email, name, lastName, address, city, state, zipCode, phone);
+        itemPage.openReviewTap();
+        itemPage.setReviewAndSubmit(nick, summary, content);
     }
-
 
 
 }

@@ -7,6 +7,7 @@
             <class name="test.ItemTest"/>
             <class name="test.LogInTest"/>
             <class name="test.MainPageTest"/>
+            <class name="test.AddReviewTest"/>
         </classes>
     </test>
 </suite>
