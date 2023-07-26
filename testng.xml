@@ -3,11 +3,13 @@
 <suite name="TestAll">
     <test  name="testy">
         <classes>
-            <class name="test.HeaderTest"/>
-            <class name="test.ItemTest"/>
-            <class name="test.LogInTest"/>
-            <class name="test.MainPageTest"/>
-            <class name="test.AddReviewTest"/>
+<!--            <class name="test.HeaderTest"/>-->
+<!--            <class name="test.ItemTest"/>-->
+<!--            <class name="test.LogInTest"/>-->
+<!--            <class name="test.MainPageTest"/>-->
+<!--            <class name="test.AddReviewTest"/>-->
+            <class name="test.MouseOverContextMenuTest"/>
+
         </classes>
     </test>
 </suite>

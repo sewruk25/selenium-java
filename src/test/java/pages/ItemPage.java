@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -48,8 +49,9 @@ public class ItemPage extends BasePage {
     protected WebElement reviewRating1;
     @FindBy(xpath = "//button[@class='action submit primary']")
     protected WebElement btnReviewSubmit;
-    @FindBy(xpath = "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']//text()")
-    protected WebElement toastAddedReview;
+//    @FindBy(xpath = "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']//text()")
+//    protected WebElement toastAddedReview;
+    protected final String toastAddReview = "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']//text()";
 
 
     public void setupAndAddToCartWithAssertions(String size, String color, String qnt) {
@@ -79,7 +81,7 @@ public class ItemPage extends BasePage {
         reviewRating1.click();
         btnReviewSubmit.click();
 //        wait.until(ExpectedConditions.elementToBeClickable(toastAddedReview));
-//        Assert.assertEquals(toastAddedReview.getText(), ToastUtils.REVIEW_ADDED);
+//        Assert.assertEquals(driver.findElement(By.xpath(toastAddReview)).getText(), ToastUtils.REVIEW_ADDED);
 
     }
 

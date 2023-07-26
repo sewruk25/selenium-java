@@ -1,6 +1,7 @@
 package pages;
 
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -21,9 +22,11 @@ public class BasePage {
 
 
 
+
     public BasePage(WebDriver driver) {
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver,this);
+        this.driver = driver;
     }
 
 
