@@ -27,8 +27,7 @@ protected HeaderPage headerPage;
 
     }
     @Test
-    public void move() throws InterruptedException {
-
-        headerPage.pointAtLnkWomen();
+    public void hoverToJackets() throws InterruptedException {
+        headerPage.moveToJacketUsingHover();
     }
 }

@@ -19,6 +19,8 @@ public class BasePage {
 
     protected WebDriverWait wait;
     protected WebDriver driver;
+//    protected Actions actions;
+
 
 
 
@@ -27,6 +29,7 @@ public class BasePage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver,this);
         this.driver = driver;
+//        Actions actions = new Actions(driver);
     }
 
 

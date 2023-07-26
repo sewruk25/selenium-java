@@ -13,11 +13,11 @@ import utils.PageTitleUtils;
 
 public class HeaderPage extends BasePage{
 
+
     public HeaderPage(WebDriver driver) {
         super(driver);
-        itemPage = new ItemPage(driver);
     }
-    ItemPage itemPage;
+
 
 
     @FindBy(id="search")
@@ -48,6 +48,14 @@ public class HeaderPage extends BasePage{
     protected WebElement btnToCheckoutCart;
     @FindBy (xpath = "//div[@class='loading-mask']")
     protected WebElement cartLoader;
+    @FindBy (id="ui-id-9")
+    protected WebElement tops;
+    @FindBy (id="ui-id-11")
+    protected WebElement jackets;
+
+
+
+
 
     public void verifylnkWhatsNew(){
         wait.until(ExpectedConditions.elementToBeClickable(lnkWhatsNew)).click();
@@ -106,10 +114,17 @@ public class HeaderPage extends BasePage{
 
 
 
-    public void pointAtLnkWomen() throws InterruptedException {
+    public void moveToJacketUsingHover() throws InterruptedException {
         Thread.sleep(5000);
-        Actions action = new Actions(driver);
-        action.moveToElement(lnkWomen).build().perform();
+        Actions actions = new Actions(driver);
+//        wait.until(ExpectedConditions.elementToBeClickable(lnkWomen));
+        actions.moveToElement(lnkWomen).build().perform();
+        wait.until(ExpectedConditions.elementToBeClickable(tops));
+        actions.moveToElement(tops).build().perform();
+        wait.until(ExpectedConditions.elementToBeClickable(jackets));
+        jackets.click();
+        wait.until(ExpectedConditions.elementToBeClickable(titlePage));
+        Assert.assertEquals(titlePage.getText(),PageTitleUtils.JACKETS);
 
     }
 
