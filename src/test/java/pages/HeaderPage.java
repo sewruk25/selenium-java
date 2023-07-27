@@ -58,29 +58,23 @@ public class HeaderPage extends BasePage{
         Assert.assertEquals(titlePage.getText(),title);
     }
 
-    public void verifylnkWhatsNew(){
+    public void goToWhatsNew(){
         wait.until(ExpectedConditions.elementToBeClickable(lnkWhatsNew)).click();
-        Assert.assertEquals(titlePage.getText(), PageTitleUtils.WHATS_NEW);
     }
-    public void verifylnkWomen(){
+    public void goToWomen(){
         wait.until(ExpectedConditions.elementToBeClickable(lnkWomen)).click();
-        Assert.assertEquals(titlePage.getText(), PageTitleUtils.WOMEN);
     }
-    public void verifylnkMen(){
+    public void goToMen(){
         wait.until(ExpectedConditions.elementToBeClickable(lnkMen)).click();
-        Assert.assertEquals(titlePage.getText(), PageTitleUtils.MEN);
     }
-    public void verifylnkGear(){
+    public void goToGear(){
         wait.until(ExpectedConditions.elementToBeClickable(lnkGear)).click();
-        Assert.assertEquals(titlePage.getText(), PageTitleUtils.GEAR);
     }
-    public void verifylnkTraining(){
+    public void goToTraining(){
         wait.until(ExpectedConditions.elementToBeClickable(lnkTraining)).click();
-        Assert.assertEquals(titlePage.getText(), PageTitleUtils.TRAINING);
     }
-    public void verifylnkSale(){
+    public void goToSale(){
         wait.until(ExpectedConditions.elementToBeClickable(lnkSale)).click();
-        Assert.assertEquals(titlePage.getText(), PageTitleUtils.SALE);
     }
 
     public void showCart() throws InterruptedException {

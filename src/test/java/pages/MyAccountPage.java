@@ -15,14 +15,6 @@ public class MyAccountPage extends BasePage{
         super(driver);
     }
 
-    @FindBy(xpath = "//span[@class='base']")
-    protected WebElement pageTitle;
-
-
-    public void verifyPageTitle(){
-        wait.until(ExpectedConditions.elementToBeClickable(pageTitle));
-        Assert.assertNotEquals(pageTitle.getText(), PageTitleUtils.MY_ACCOUNT);
-    }
 
 
 

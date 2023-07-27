@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HeaderPage;
 import utility.ReadXLSdata;
+import utils.PageTitleUtils;
 
 
 public class HeaderTest extends BaseTest {
@@ -29,12 +30,18 @@ public class HeaderTest extends BaseTest {
     @Test (dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
     public void verifyLinking(String url){
         headerPage.visit(url);
-        headerPage.verifylnkWhatsNew();
-        headerPage.verifylnkWomen();
-        headerPage.verifylnkMen();
-        headerPage.verifylnkGear();
-        headerPage.verifylnkTraining();
-        headerPage.verifylnkSale();
+        headerPage.goToWhatsNew();
+        headerPage.titleAssert(PageTitleUtils.WHATS_NEW);
+        headerPage.goToWomen();
+        headerPage.titleAssert(PageTitleUtils.WOMEN);
+        headerPage.goToMen();
+        headerPage.titleAssert(PageTitleUtils.MEN);
+        headerPage.goToGear();
+        headerPage.titleAssert(PageTitleUtils.GEAR);
+        headerPage.goToTraining();
+        headerPage.titleAssert(PageTitleUtils.TRAINING);
+        headerPage.goToSale();
+        headerPage.titleAssert(PageTitleUtils.SALE);
     }
 
 

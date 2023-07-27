@@ -11,12 +11,14 @@ import pages.HeaderPage;
 import pages.LogInPage;
 import pages.MyAccountPage;
 import utility.ReadXLSdata;
+import utils.PageTitleUtils;
 
 public class LogInTest extends BaseTest {
 
 
     LogInPage logInPage;
     MyAccountPage myAccountPage;
+    HeaderPage headerPage;
 
     @BeforeMethod
     public void setup() {
@@ -27,6 +29,7 @@ public class LogInTest extends BaseTest {
 
         logInPage = new LogInPage(driver);
         myAccountPage = new MyAccountPage(driver);
+        headerPage = new HeaderPage(driver);
 
     }
 
@@ -35,7 +38,7 @@ public class LogInTest extends BaseTest {
     public void signIn(String url, String login, String password) {
         logInPage.visit(url);
         logInPage.signIn(login, password);
-        myAccountPage.verifyPageTitle();
+        headerPage.titleAssert(PageTitleUtils.MY_ACCOUNT);
     }
 
 
