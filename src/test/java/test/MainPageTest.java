@@ -3,13 +3,14 @@ package test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.*;
 import utility.ReadXLSdata;
 
-public class MainPageTest {
+public class MainPageTest extends BaseTest {
 
     MainPage mainPage;
     HeaderPage headerPage;
@@ -22,7 +23,6 @@ public class MainPageTest {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://magento.softwaretestingboard.com/");
 
         mainPage = new MainPage(driver);
         headerPage = new HeaderPage(driver);
@@ -31,14 +31,12 @@ public class MainPageTest {
         checkOutPage = new CheckoutPage(driver);
 
     }
-//    @Test
-//    public void trial(){
-//        mainPage.pointAtFirstLatest();
-//    }
+
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
     public void offlineShopingProcess(String itemName, String email, String name, String lastName, String address,
                                       String city, String state, String zipCode, String phone) throws InterruptedException {
+        headerPage.visit("https://magento.softwaretestingboard.com/");
         headerPage.searchFor(itemName);
         searchResultsPage.selectFirstResult();
         itemPage.setupAndAddToCart();

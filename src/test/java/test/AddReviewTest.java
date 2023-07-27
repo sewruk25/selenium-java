@@ -3,12 +3,13 @@ package test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.*;
 import utility.ReadXLSdata;
 
-public class AddReviewTest {
+public class AddReviewTest extends BaseTest{
     MainPage mainPage;
     HeaderPage headerPage;
     SearchResultsPage searchResultsPage;
@@ -20,7 +21,6 @@ public class AddReviewTest {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://magento.softwaretestingboard.com/");
 
         mainPage = new MainPage(driver);
         headerPage = new HeaderPage(driver);
@@ -29,8 +29,11 @@ public class AddReviewTest {
         checkOutPage = new CheckoutPage(driver);
 
     }
+
+
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
     public void writeReview(String itemname, String nick, String summary, String content) throws InterruptedException {
+        headerPage.visit("https://magento.softwaretestingboard.com/");
         headerPage.searchFor(itemname);
         searchResultsPage.selectFirstResult();
         itemPage.openReviewTap();

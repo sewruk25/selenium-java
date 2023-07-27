@@ -12,24 +12,30 @@ import org.openqa.selenium.support.PageFactory;
 
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
+
+import static java.lang.invoke.MethodHandles.lookup;
+import static org.slf4j.LoggerFactory.getLogger;
 
 public class BasePage {
 
     protected WebDriverWait wait;
-    protected WebDriver driver;
+    public WebDriver driver;
 //    protected Actions actions;
-
-
-
 
 
     public BasePage(WebDriver driver) {
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
         this.driver = driver;
 //        Actions actions = new Actions(driver);
+    }
+
+    public void visit(String url) {
+        driver.get(url);
     }
 
 

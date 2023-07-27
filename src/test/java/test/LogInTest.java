@@ -24,15 +24,16 @@ public class LogInTest extends BaseTest {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        driver.get("https://magento.softwaretestingboard.com/customer/account/login/referer/");
 
         logInPage = new LogInPage(driver);
         myAccountPage = new MyAccountPage(driver);
 
     }
 
+
     @Test(dataProviderClass = ReadXLSdata.class,dataProvider = "testdata")
     public void signIn(String login, String password) {
+        logInPage.visit("https://magento.softwaretestingboard.com/customer/account/login/referer/");
         logInPage.signIn(login, password);
         myAccountPage.verifyPageTitle();
     }

@@ -54,9 +54,6 @@ public class HeaderPage extends BasePage{
     protected WebElement jackets;
 
 
-
-
-
     public void verifylnkWhatsNew(){
         wait.until(ExpectedConditions.elementToBeClickable(lnkWhatsNew)).click();
         Assert.assertEquals(titlePage.getText(), PageTitleUtils.WHATS_NEW);
