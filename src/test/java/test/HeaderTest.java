@@ -9,6 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HeaderPage;
+import utility.ReadXLSdata;
 
 
 public class HeaderTest extends BaseTest {
@@ -25,9 +26,9 @@ public class HeaderTest extends BaseTest {
 
     }
 
-    @Test (testName = "pierwszy")
-    public void verifyLinking(){
-        headerPage.visit("https://magento.softwaretestingboard.com/");
+    @Test (dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
+    public void verifyLinking(String url){
+        headerPage.visit(url);
         headerPage.verifylnkWhatsNew();
         headerPage.verifylnkWomen();
         headerPage.verifylnkMen();

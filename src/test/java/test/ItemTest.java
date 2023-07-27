@@ -32,8 +32,8 @@ public class ItemTest extends BaseTest{
     }
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void addToCartAndVerifyPrice(String size, String color, String qnt) throws InterruptedException {
-        itemPage.visit("https://magento.softwaretestingboard.com/juno-jacket.html#");
+    public void addToCartAndVerifyPrice(String url,String size, String color, String qnt) throws InterruptedException {
+        itemPage.visit(url);
         itemPage.setupAndAddToCartWithAssertions(size, color, qnt);
         headerPage.showCart();
         headerPage.verifyPriceInCart();

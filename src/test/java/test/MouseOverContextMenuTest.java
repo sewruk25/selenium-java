@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HeaderPage;
 import pages.MainPage;
+import utility.ReadXLSdata;
 
 public class MouseOverContextMenuTest extends BaseTest {
 
@@ -26,9 +27,9 @@ protected HeaderPage headerPage;
 
     }
 
-    @Test
-    public void hoverToJackets() throws InterruptedException {
-        headerPage.visit("https://magento.softwaretestingboard.com/");
+    @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
+    public void hoverToJackets(String url) throws InterruptedException {
+        headerPage.visit(url);
         headerPage.moveToJacketUsingHover();
     }
 }

@@ -34,9 +34,9 @@ public class MainPageTest extends BaseTest {
 
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void offlineShopingProcess(String itemName, String email, String name, String lastName, String address,
+    public void offlineShopingProcess(String url, String itemName, String email, String name, String lastName, String address,
                                       String city, String state, String zipCode, String phone) throws InterruptedException {
-        headerPage.visit("https://magento.softwaretestingboard.com/");
+        headerPage.visit(url);
         headerPage.searchFor(itemName);
         searchResultsPage.selectFirstResult();
         itemPage.setupAndAddToCart();

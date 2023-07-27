@@ -32,8 +32,8 @@ public class LogInTest extends BaseTest {
 
 
     @Test(dataProviderClass = ReadXLSdata.class,dataProvider = "testdata")
-    public void signIn(String login, String password) {
-        logInPage.visit("https://magento.softwaretestingboard.com/customer/account/login/referer/");
+    public void signIn(String url, String login, String password) {
+        logInPage.visit(url);
         logInPage.signIn(login, password);
         myAccountPage.verifyPageTitle();
     }
