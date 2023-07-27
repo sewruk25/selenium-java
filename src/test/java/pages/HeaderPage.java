@@ -53,6 +53,10 @@ public class HeaderPage extends BasePage{
     @FindBy (id="ui-id-11")
     protected WebElement jackets;
 
+    public void titleAssert(String title){
+        wait.until(ExpectedConditions.visibilityOf(titlePage));
+        Assert.assertEquals(titlePage.getText(),title);
+    }
 
     public void verifylnkWhatsNew(){
         wait.until(ExpectedConditions.elementToBeClickable(lnkWhatsNew)).click();

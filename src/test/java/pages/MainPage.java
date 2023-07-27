@@ -14,12 +14,17 @@ public class MainPage extends BasePage {
 
     @FindBy(xpath = "(//img[@class='product-image-photo'])[1]")
     protected WebElement firstLatest;
+    @FindBy(xpath = "(//a[@title='Add to Wish List'])[1]")
+    protected WebElement btnAddWishList;
 
 
     public void pointAtFirstLatest(){
         Actions action = new Actions(driver);
         action.moveToElement(firstLatest).build().perform();
-        
+    }
+    public void addToWishList() throws InterruptedException {
+        Thread.sleep(200);
+        wait.until(ExpectedConditions.elementToBeClickable(btnAddWishList)).click();
     }
 
 }

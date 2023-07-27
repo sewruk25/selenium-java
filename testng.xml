@@ -9,6 +9,7 @@
             <class name="test.MainPageTest"/>
             <class name="test.AddReviewTest"/>
             <class name="test.MouseOverContextMenuTest"/>
+            <class name="test.WishListTest"/>
         </classes>
     </test>
 </suite>

@@ -11,6 +11,7 @@ public class PageTitleUtils {
     public static final String PURCHASE_CONFIRMATION="Thank you for your purchase!";
     public static final String MY_ACCOUNT = "My Account";
     public static final String JACKETS = "Jackets";
+    public static final String MY_WISH_LIST = "My Wish List";
 
 
 
