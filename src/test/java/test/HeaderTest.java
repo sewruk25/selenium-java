@@ -17,6 +17,8 @@ public class HeaderTest extends BaseTest {
 
     HeaderPage headerPage;
 
+
+
     @BeforeMethod
     public void setup(){
         WebDriverManager.chromedriver().setup();
@@ -25,6 +27,10 @@ public class HeaderTest extends BaseTest {
 //        driver.get("https://magento.softwaretestingboard.com/");
         headerPage = new HeaderPage(driver);
 
+    }
+    @AfterMethod
+    public void teardown(){
+        headerPage.quit();
     }
 
     @Test (dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")

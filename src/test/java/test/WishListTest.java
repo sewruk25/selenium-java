@@ -3,6 +3,7 @@ package test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HeaderPage;
@@ -11,7 +12,7 @@ import pages.MainPage;
 import utility.ReadXLSdata;
 import utils.PageTitleUtils;
 
-public class WishListTest {
+public class WishListTest extends BaseTest{
 
     protected MainPage mainPage;
     protected HeaderPage headerPage;
@@ -29,6 +30,10 @@ public class WishListTest {
         headerPage = new HeaderPage(driver);
         loginPage = new LogInPage(driver);
 
+    }
+    @AfterMethod
+    public void teardown(){
+        headerPage.quit();
     }
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")

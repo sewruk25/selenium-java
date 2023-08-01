@@ -18,7 +18,8 @@ public class SearchResultsPage extends BasePage{
 
 
     public void selectFirstResult(){
-        wait.until(ExpectedConditions.elementToBeClickable(firstResult)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(firstResult));
+        firstResult.click();
     }
 
 }

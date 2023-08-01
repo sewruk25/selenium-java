@@ -31,6 +31,10 @@ public class MainPageTest extends BaseTest {
         checkOutPage = new CheckoutPage(driver);
 
     }
+    @AfterMethod
+    public void teardown(){
+        headerPage.quit();
+    }
 
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")

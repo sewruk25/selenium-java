@@ -30,6 +30,10 @@ public class ItemTest extends BaseTest{
 
 
     }
+    @AfterMethod
+    public void teardown(){
+        headerPage.quit();
+    }
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
     public void addToCartAndVerifyPrice(String url,String size, String color, String qnt) throws InterruptedException {

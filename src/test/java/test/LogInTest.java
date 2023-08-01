@@ -32,6 +32,10 @@ public class LogInTest extends BaseTest {
         headerPage = new HeaderPage(driver);
 
     }
+    @AfterMethod
+    public void teardown(){
+        headerPage.quit();
+    }
 
 
     @Test(dataProviderClass = ReadXLSdata.class,dataProvider = "testdata")

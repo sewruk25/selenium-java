@@ -26,6 +26,10 @@ protected HeaderPage headerPage;
         headerPage = new HeaderPage(driver);
 
     }
+    @AfterMethod
+    public void teardown(){
+        headerPage.quit();
+    }
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
     public void hoverToJackets(String url) throws InterruptedException {

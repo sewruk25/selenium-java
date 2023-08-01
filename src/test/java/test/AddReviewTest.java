@@ -16,6 +16,8 @@ public class AddReviewTest extends BaseTest{
     ItemPage itemPage;
     CheckoutPage checkOutPage;
 
+
+
     @BeforeMethod
     public void setup() {
         WebDriverManager.chromedriver().setup();
@@ -29,6 +31,11 @@ public class AddReviewTest extends BaseTest{
         checkOutPage = new CheckoutPage(driver);
 
     }
+    @AfterMethod
+    public void teardown(){
+        headerPage.quit();
+    }
+
 
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
