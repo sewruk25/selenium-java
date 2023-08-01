@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -34,5 +35,11 @@ public class BasePage {
     public void visit(String url) {
         driver.get(url);
     }
+    public void quit() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
 
 }
