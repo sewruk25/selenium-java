@@ -3,15 +3,13 @@ package test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.*;
 import utility.ReadXLSdata;
 import utils.PageTitleUtils;
 
-public class ChangePasswordTest extends BaseTest {
+public class AddAdditionalAddressTest extends BaseTest {
 
 
     LogInPage logInPage;
@@ -19,6 +17,7 @@ public class ChangePasswordTest extends BaseTest {
     HeaderPage headerPage;
     MyAccountSideBarPage myAccountSideBarPage;
     EditAccountInformation editAccountInformation;
+    AdressBookPage adressBookPage;
 
     @BeforeMethod
     public void setup() {
@@ -32,25 +31,26 @@ public class ChangePasswordTest extends BaseTest {
         headerPage = new HeaderPage(driver);
         myAccountSideBarPage = new MyAccountSideBarPage(driver);
         editAccountInformation = new EditAccountInformation(driver);
+        adressBookPage = new AdressBookPage(driver);
 
     }
-    @AfterMethod
-    public void teardown(){
-        headerPage.quit();
-    }
-
+//    @AfterMethod
+//    public void teardown(){
+//        headerPage.quit();
+//    }
 
 
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void changePassword(String url, String login, String password, String listOption, String currentPassword,
-                               String newPassword)  {
+    public void addAdditionalAddress(String url, String login, String password, String listOption,String phoneNumber,
+                                     String street, String city,String zipCode, String country, String region){
         logInPage.visit(url);
         logInPage.signIn(login, password);
         myAccountSideBarPage.selectFromSider(String.valueOf(listOption));
-        editAccountInformation.changePassword();
-        editAccountInformation.setNewPassword(currentPassword, newPassword);
-        headerPage.titleAssert(PageTitleUtils.CUSTOMER_LOGIN);
+        adressBookPage.setNewAddress();
+        adressBookPage.setNewAddress(phoneNumber, street, city, zipCode, country, region);
+        headerPage.titleAssert(PageTitleUtils.ADDRESS_BOOK);
+
     }
 
 }

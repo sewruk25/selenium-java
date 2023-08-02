@@ -11,6 +11,7 @@
             <class name="test.MouseOverContextMenuTest"/>
             <class name="test.WishListTest"/>
             <class name="test.ChangePasswordTest"/>
+            <class name="test.AddAdditionalAddressTest"/>
         </classes>
     </test>
 </suite>

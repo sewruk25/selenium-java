@@ -13,6 +13,7 @@ public class PageTitleUtils {
     public static final String JACKETS = "Jackets";
     public static final String MY_WISH_LIST = "My Wish List";
     public static final String CUSTOMER_LOGIN = "Customer Login";
+    public static final String ADDRESS_BOOK = "Address Book";
 
 
 
