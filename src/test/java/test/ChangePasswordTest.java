@@ -34,10 +34,10 @@ public class ChangePasswordTest extends BaseTest {
         editAccountInformation = new EditAccountInformation(driver);
 
     }
-//    @AfterMethod
-//    public void teardown(){
-//        headerPage.quit();
-//    }
+    @AfterMethod
+    public void teardown(){
+        headerPage.quit();
+    }
 
 
 
