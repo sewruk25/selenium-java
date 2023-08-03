@@ -4,7 +4,6 @@ package test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,28 +12,27 @@ import utility.ReadXLSdata;
 import utils.PageTitleUtils;
 
 
-public class HeaderTest extends BaseTest {
+public class HeaderTest {
+
 
     HeaderPage headerPage;
 
-
-
     @BeforeMethod
-    public void setup(){
+    public void setup() {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-//        driver.get("https://magento.softwaretestingboard.com/");
         headerPage = new HeaderPage(driver);
 
     }
+
     @AfterMethod
-    public void teardown(){
+    public void teardown() {
         headerPage.quit();
     }
 
-    @Test (dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void verifyLinking(String url){
+    @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
+    public void verifyLinking(String url) {
         headerPage.visit(url);
         headerPage.goToWhatsNew();
         headerPage.titleAssert(PageTitleUtils.WHATS_NEW);

@@ -1,17 +1,11 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-import utils.ToastUtils;
-
-import java.security.Key;
 
 public class ItemPage extends BasePage {
 
@@ -32,27 +26,24 @@ public class ItemPage extends BasePage {
     protected WebElement selectSize;
     @FindBy(id = "option-label-color-93-item-50")
     protected WebElement selectColorBlue;
-    @FindBy(id="option-label-color-93-item-49")
+    @FindBy(id = "option-label-color-93-item-49")
     protected WebElement selectColorBlack;
     @FindBy(id = "qty")
     protected WebElement inputQuantity;
     @FindBy(xpath = "(//span[@class='price'])[1]")
     protected WebElement price;
-    @FindBy(id="tab-label-reviews-title")
+    @FindBy(id = "tab-label-reviews-title")
     protected WebElement tabReview;
-    @FindBy(id="nickname_field")
+    @FindBy(id = "nickname_field")
     protected WebElement reviewNick;
-    @FindBy(id="summary_field")
+    @FindBy(id = "summary_field")
     protected WebElement reviewSummary;
-    @FindBy(id="review_field")
+    @FindBy(id = "review_field")
     protected WebElement reviewContent;
-    @FindBy(id="Rating_1_label")
+    @FindBy(id = "Rating_1_label")
     protected WebElement reviewRating1;
     @FindBy(xpath = "//button[@class='action submit primary']")
     protected WebElement btnReviewSubmit;
-//    @FindBy(xpath = "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']//text()")
-//    protected WebElement toastAddedReview;
-    protected final String toastAddReview = "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']//text()";
 
 
     public void setupAndAddToCartWithAssertions(String size, String color, String qnt) {
@@ -64,17 +55,19 @@ public class ItemPage extends BasePage {
         inputQuantity.sendKeys(qnt);
         wait.until(ExpectedConditions.elementToBeClickable(btnAddToCart)).click();
     }
-    public void setupAndAddToCart(){
+
+    public void setupAndAddToCart() {
         wait.until(ExpectedConditions.elementToBeClickable(selectSize)).click();
         selectColorBlack.click();
         wait.until(ExpectedConditions.elementToBeClickable(btnAddToCart)).click();
     }
 
 
-    public void openReviewTap(){
+    public void openReviewTap() {
         wait.until(ExpectedConditions.elementToBeClickable(tabReview)).click();
     }
-    public void setReviewAndSubmit(String nick, String summary, String content){
+
+    public void setReviewAndSubmit(String nick, String summary, String content) {
         wait.until(ExpectedConditions.elementToBeClickable(reviewNick)).sendKeys(nick);
         reviewSummary.sendKeys(summary);
         reviewContent.sendKeys(content);
@@ -82,11 +75,8 @@ public class ItemPage extends BasePage {
         reviewRating1.click();
         btnReviewSubmit.click();
 
-//        wait.until(ExpectedConditions.elementToBeClickable(toastAddedReview));
-//        Assert.assertEquals(driver.findElement(By.xpath(toastAddReview)).getText(), ToastUtils.REVIEW_ADDED);
 
     }
-
 
 
 }

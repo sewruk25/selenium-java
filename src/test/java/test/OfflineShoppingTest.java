@@ -5,14 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.*;
 import utility.ReadXLSdata;
+import utils.PageTitleUtils;
 
-public class MainPageTest extends BaseTest {
+public class OfflineShoppingTest {
 
-    MainPage mainPage;
     HeaderPage headerPage;
     SearchResultsPage searchResultsPage;
     ItemPage itemPage;
@@ -24,17 +23,17 @@ public class MainPageTest extends BaseTest {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        mainPage = new MainPage(driver);
         headerPage = new HeaderPage(driver);
         searchResultsPage = new SearchResultsPage(driver);
         itemPage = new ItemPage(driver);
         checkOutPage = new CheckoutPage(driver);
 
     }
-    @AfterMethod
-    public void teardown(){
-        headerPage.quit();
-    }
+
+//    @AfterMethod
+//    public void teardown() {
+//        headerPage.quit();
+//    }
 
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
@@ -47,8 +46,8 @@ public class MainPageTest extends BaseTest {
         headerPage.showCart();
         headerPage.goToCheckout();
         checkOutPage.setShippingAddress(email, name, lastName, address, city, state, zipCode, phone);
+        headerPage.titleAssert(PageTitleUtils.PURCHASE_CONFIRMATION);
     }
-
 
 
 }

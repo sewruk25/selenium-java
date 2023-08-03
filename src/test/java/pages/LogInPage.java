@@ -13,13 +13,13 @@ public class LogInPage extends BasePage {
 
     @FindBy(id = "email")
     protected WebElement inputEmail;
-    @FindBy(id="pass")
+    @FindBy(id = "pass")
     protected WebElement inputPassword;
-    @FindBy (id="send2")
+    @FindBy(id = "send2")
     protected WebElement btnSignIn;
 
 
-    public void signIn(String login, String password){
+    public void signIn(String login, String password) {
         wait.until(ExpectedConditions.elementToBeClickable(inputEmail)).sendKeys(login);
         inputPassword.sendKeys(password);
         btnSignIn.click();

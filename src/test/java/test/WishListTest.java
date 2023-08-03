@@ -12,12 +12,11 @@ import pages.MainPage;
 import utility.ReadXLSdata;
 import utils.PageTitleUtils;
 
-public class WishListTest extends BaseTest{
+public class WishListTest {
 
     protected MainPage mainPage;
     protected HeaderPage headerPage;
     protected LogInPage loginPage;
-
 
 
     @BeforeMethod
@@ -31,8 +30,9 @@ public class WishListTest extends BaseTest{
         loginPage = new LogInPage(driver);
 
     }
+
     @AfterMethod
-    public void teardown(){
+    public void teardown() {
         headerPage.quit();
     }
 

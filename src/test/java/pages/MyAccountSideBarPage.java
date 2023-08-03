@@ -17,12 +17,10 @@ public class MyAccountSideBarPage extends BasePage {
     protected List<WebElement> nav;
 
 
-    public void selectFromSider(String listOption){
+    public void selectFromSider(String listOption) {
         wait.until(ExpectedConditions.visibilityOfAllElements(nav));
         nav.get(Integer.parseInt(listOption)).click();
     }
-
-
 
 
 }

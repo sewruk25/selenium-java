@@ -5,25 +5,24 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class EditAccountInformation extends BasePage{
+public class EditAccountInformation extends BasePage {
     public EditAccountInformation(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(id="change-password")
+    @FindBy(id = "change-password")
     protected WebElement chkChangePassword;
-    @FindBy(id="current-password")
+    @FindBy(id = "current-password")
     protected WebElement inputCurrentPassword;
-    @FindBy(id="password")
+    @FindBy(id = "password")
     protected WebElement inputPassword;
-    @FindBy(id="password-confirmation")
+    @FindBy(id = "password-confirmation")
     protected WebElement inputPasswordConfirm;
     @FindBy(xpath = "//button[@title='Save']")
     protected WebElement btnSave;
 
 
-
-    public void changePassword(){
+    public void changePassword() {
         wait.until(ExpectedConditions.elementToBeClickable(chkChangePassword)).click();
     }
 

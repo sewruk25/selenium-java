@@ -6,7 +6,7 @@
             <class name="test.HeaderTest"/>
             <class name="test.ItemTest"/>
             <class name="test.LogInTest"/>
-            <class name="test.MainPageTest"/>
+            <class name="test.OfflineShoppingTest"/>
             <class name="test.AddReviewTest"/>
             <class name="test.MouseOverContextMenuTest"/>
             <class name="test.WishListTest"/>

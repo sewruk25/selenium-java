@@ -12,13 +12,13 @@ import org.testng.annotations.DataProvider;
 public class ReadXLSdata {
 
 
-    @DataProvider(name="testdata")
+    @DataProvider(name = "testdata")
     public String[][] getData(Method m) throws IOException {
 
 
         String excelSheetName = m.getName();
         // Dostaję się do wybranego arkusza \/
-        File file = new File(System.getProperty("user.dir")+"/src/main/resources/testdata.xlsx"); //jak chcę przeczytać excela najpierw biorę klasę File i znajduje plik który będę czytał "user.dir" to miejsce z którego uruchomiona jest java
+        File file = new File(System.getProperty("user.dir") + "/src/main/resources/testdata.xlsx"); //jak chcę przeczytać excela najpierw biorę klasę File i znajduje plik który będę czytał "user.dir" to miejsce z którego uruchomiona jest java
         FileInputStream fis = new FileInputStream(file); //betoda używana do odczytu strumieni bajtów
         Workbook wb = WorkbookFactory.create(fis); // Workbook służy do tworzenia arkuszy w excelu
         Sheet sheetName = wb.getSheet(excelSheetName); // klasa Sheet reprezentuje arkusz
@@ -35,16 +35,15 @@ public class ReadXLSdata {
 
         //Tworzę pętle które przejdą przez wiersze i kolumny
 
-        String testData [][]=new String[totalRows][totalCollumns];
-        for(int i=1; i<=totalRows;i++){
-            for(int j=0;j<totalCollumns;j++){
-                testData[i-1][j]=format.formatCellValue(sheetName.getRow(i).getCell(j));
+        String testData[][] = new String[totalRows][totalCollumns];
+        for (int i = 1; i <= totalRows; i++) {
+            for (int j = 0; j < totalCollumns; j++) {
+                testData[i - 1][j] = format.formatCellValue(sheetName.getRow(i).getCell(j));
 //                System.out.println(testData[i-1][j]);
             }
         }
 
         return testData;
-
 
 
     }

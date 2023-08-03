@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-public class AdressBookPage extends BasePage{
+public class AdressBookPage extends BasePage {
 
     public AdressBookPage(WebDriver driver) {
         super(driver);
@@ -15,29 +15,28 @@ public class AdressBookPage extends BasePage{
 
     @FindBy(xpath = "//button[@title='Add New Address']")
     protected WebElement btnNewAddress;
-    @FindBy(id="telephone")
+    @FindBy(id = "telephone")
     protected WebElement inputPhoneNumber;
-    @FindBy (id="street_1")
+    @FindBy(id = "street_1")
     protected WebElement inputStreet;
-    @FindBy (id="city")
+    @FindBy(id = "city")
     protected WebElement inputCity;
-    @FindBy(id="region_id")
+    @FindBy(id = "region_id")
     protected WebElement selectRegion;
-    @FindBy(id="zip")
+    @FindBy(id = "zip")
     protected WebElement inputZipCode;
-    @FindBy(id="country")
+    @FindBy(id = "country")
     protected WebElement selectCountry;
     @FindBy(xpath = "//button[@class='action save primary']")
     protected WebElement btnSave;
 
 
-
-    public void setNewAddress(){
+    public void setNewAddress() {
         wait.until(ExpectedConditions.elementToBeClickable(btnNewAddress)).click();
     }
 
-    public void setNewAddress(String phoneNumber, String street, String city, String zipCode, String country, String region){
-        wait.until(ExpectedConditions.elementToBeClickable(inputPhoneNumber)).sendKeys(phoneNumber);
+    public void setNewAddress(String phoneNumber, String street, String city, String zipCode, String country, String region) {
+        wait.until(ExpectedConditions.visibilityOf(inputPhoneNumber)).sendKeys(phoneNumber);
         inputStreet.sendKeys(street);
         inputCity.sendKeys(city);
         inputZipCode.sendKeys(zipCode);
@@ -47,7 +46,6 @@ public class AdressBookPage extends BasePage{
         addressRegion.selectByVisibleText(region);
         btnSave.click();
     }
-
 
 
 }
