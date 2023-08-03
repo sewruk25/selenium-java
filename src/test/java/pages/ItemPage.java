@@ -74,13 +74,14 @@ public class ItemPage extends BasePage {
     public void openReviewTap(){
         wait.until(ExpectedConditions.elementToBeClickable(tabReview)).click();
     }
-    public void setReviewAndSubmit(String nick, String summary, String content) throws InterruptedException {
+    public void setReviewAndSubmit(String nick, String summary, String content){
         wait.until(ExpectedConditions.elementToBeClickable(reviewNick)).sendKeys(nick);
         reviewSummary.sendKeys(summary);
         reviewContent.sendKeys(content);
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.visibilityOf(reviewRating1));
         reviewRating1.click();
         btnReviewSubmit.click();
+
 //        wait.until(ExpectedConditions.elementToBeClickable(toastAddedReview));
 //        Assert.assertEquals(driver.findElement(By.xpath(toastAddReview)).getText(), ToastUtils.REVIEW_ADDED);
 

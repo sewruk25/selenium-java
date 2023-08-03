@@ -64,7 +64,7 @@ public class CheckoutPage extends BasePage{
         inputPhone.sendKeys(phone);
         radioFlatRate.click();
         btnContinue.click();
-        Thread.sleep(3500);
+//        Thread.sleep(3500);
         wait.until(ExpectedConditions.invisibilityOf(placeOrderLoader));
         btnPlaceOrder.click();
         wait.until(ExpectedConditions.invisibilityOf(placeOrderLoader));

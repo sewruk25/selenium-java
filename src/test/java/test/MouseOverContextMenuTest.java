@@ -32,7 +32,7 @@ protected HeaderPage headerPage;
     }
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void hoverToJackets(String url) throws InterruptedException {
+    public void hoverToJackets(String url)  {
         headerPage.visit(url);
         headerPage.moveToJacketUsingHover();
     }

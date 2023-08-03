@@ -77,26 +77,26 @@ public class HeaderPage extends BasePage{
         wait.until(ExpectedConditions.elementToBeClickable(lnkSale)).click();
     }
 
-    public void showCart() throws InterruptedException {
+    public void showCart() {
         wait.until(ExpectedConditions.invisibilityOf(cartLoader));
-//        wait.until(ExpectedConditions.elementToBeClickable(lnkShowCart)).click();
         lnkShowCart.click();
-        Thread.sleep(1500);
+
     }
 
-    public int getPrice() throws InterruptedException {
-        Thread.sleep(5000);
+    public int getPrice()  {
+        wait.until(ExpectedConditions.visibilityOf(oneItemPrice));
         String cena = oneItemPrice.getText().substring(1, 3);
         return Integer.parseInt(cena);
     }
 
-    public String multiplyPrice() throws InterruptedException {
+    public String multiplyPrice() {
         return Integer.toString(6*getPrice());
     }
     public String cutPrice(){
+        wait.until(ExpectedConditions.visibilityOf(sumPrice));
         return sumPrice.getText().substring(1,4);
     }
-    public void verifyPriceInCart() throws InterruptedException {
+    public void verifyPriceInCart()  {
         Assert.assertEquals(cutPrice(),multiplyPrice());
     }
     public void searchFor(String itemName){
@@ -109,10 +109,9 @@ public class HeaderPage extends BasePage{
 
 
 
-    public void moveToJacketUsingHover() throws InterruptedException {
-        Thread.sleep(5000);
+    public void moveToJacketUsingHover() {
         Actions actions = new Actions(driver);
-//        wait.until(ExpectedConditions.elementToBeClickable(lnkWomen));
+        wait.until(ExpectedConditions.elementToBeClickable(lnkWomen));
         actions.moveToElement(lnkWomen).build().perform();
         wait.until(ExpectedConditions.elementToBeClickable(tops));
         actions.moveToElement(tops).build().perform();

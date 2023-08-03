@@ -28,8 +28,7 @@ public class EditAccountInformation extends BasePage{
     }
 
     public void setNewPassword(String currentPassword, String newPassword) {
-//        Thread.sleep(1300);
-//        inputCurrentPassword.sendKeys(currentPassword);
+
         wait.until(ExpectedConditions.elementToBeClickable(inputCurrentPassword)).sendKeys(currentPassword);
         inputPassword.sendKeys(newPassword);
         inputPasswordConfirm.sendKeys(newPassword);

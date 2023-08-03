@@ -23,8 +23,8 @@ public class MainPage extends BasePage {
         action.moveToElement(firstLatest).build().perform();
     }
     public void addToWishList() throws InterruptedException {
-        Thread.sleep(200);
-        wait.until(ExpectedConditions.elementToBeClickable(btnAddWishList)).click();
+        Thread.sleep(300);
+        wait.until(ExpectedConditions.visibilityOf(btnAddWishList)).click();
     }
 
 }

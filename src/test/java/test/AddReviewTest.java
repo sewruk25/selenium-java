@@ -39,7 +39,7 @@ public class AddReviewTest extends BaseTest{
 
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void writeReview(String url, String itemname, String nick, String summary, String content) throws InterruptedException {
+    public void writeReview(String url, String itemname, String nick, String summary, String content) {
         headerPage.visit(url);
         headerPage.searchFor(itemname);
         searchResultsPage.selectFirstResult();
