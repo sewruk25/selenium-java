@@ -49,24 +49,24 @@ public class CheckoutPage extends BasePage{
 
 
     public void setShippingAddress(String email,String name, String lastName, String address, String city, String state,
-                                   String zipCode, String phone) throws InterruptedException {
-        Thread.sleep(5000);
-        inputEmail.sendKeys(email);
-        intputFirstName.sendKeys(name);
-        inputLastName.sendKeys(lastName);
-        inputAddress.sendKeys(address);
-        inputCity.sendKeys(city);
+                                   String zipCode, String phone)  {
+        wait.until(ExpectedConditions.visibilityOf(inputEmail)).sendKeys(email);
+
+        wait.until(ExpectedConditions.visibilityOf(intputFirstName)).sendKeys(name);
+        wait.until(ExpectedConditions.visibilityOf(inputLastName)).sendKeys(lastName);
+        wait.until(ExpectedConditions.visibilityOf(inputAddress)).sendKeys(address);
+        wait.until(ExpectedConditions.visibilityOf(inputCity)).sendKeys(city);
 
         Select select = new Select(selectRegion);
         select.selectByVisibleText(state);
 
         inputZipCode.sendKeys(zipCode);
         inputPhone.sendKeys(phone);
-        radioFlatRate.click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(radioFlatRate)).click();
         btnContinue.click();
-//        Thread.sleep(3500);
         wait.until(ExpectedConditions.invisibilityOf(placeOrderLoader));
-        btnPlaceOrder.click();
+        wait.until(ExpectedConditions.elementToBeClickable(btnPlaceOrder)).click();
         wait.until(ExpectedConditions.invisibilityOf(placeOrderLoader));
         wait.until(ExpectedConditions.visibilityOf(purchaseConfirmation));
         Assert.assertEquals(purchaseConfirmation.getText(), PageTitleUtils.PURCHASE_CONFIRMATION);
