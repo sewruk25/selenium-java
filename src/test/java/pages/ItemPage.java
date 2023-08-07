@@ -29,19 +29,19 @@ public class ItemPage extends BasePage {
     @FindBy(id = "option-label-color-93-item-49")
     protected WebElement selectColorBlack;
     @FindBy(id = "qty")
-    protected WebElement inputQuantity;
+    protected WebElement txtQuantity;
     @FindBy(xpath = "(//span[@class='price'])[1]")
     protected WebElement price;
     @FindBy(id = "tab-label-reviews-title")
     protected WebElement tabReview;
     @FindBy(id = "nickname_field")
-    protected WebElement reviewNick;
+    protected WebElement txtReviewNick;
     @FindBy(id = "summary_field")
-    protected WebElement reviewSummary;
+    protected WebElement txtReviewSummary;
     @FindBy(id = "review_field")
-    protected WebElement reviewContent;
+    protected WebElement txtReviewContent;
     @FindBy(id = "Rating_1_label")
-    protected WebElement reviewRating1;
+    protected WebElement txtReviewRating1;
     @FindBy(xpath = "//button[@class='action submit primary']")
     protected WebElement btnReviewSubmit;
 
@@ -51,8 +51,8 @@ public class ItemPage extends BasePage {
         Assert.assertEquals(selectedSize.getText(), size);
         selectColorBlue.click();
         Assert.assertEquals(selectedColor.getText(), color);
-        inputQuantity.clear();
-        inputQuantity.sendKeys(qnt);
+        txtQuantity.clear();
+        txtQuantity.sendKeys(qnt);
         wait.until(ExpectedConditions.elementToBeClickable(btnAddToCart)).click();
     }
 
@@ -68,11 +68,11 @@ public class ItemPage extends BasePage {
     }
 
     public void setReviewAndSubmit(String nick, String summary, String content) {
-        wait.until(ExpectedConditions.elementToBeClickable(reviewNick)).sendKeys(nick);
-        reviewSummary.sendKeys(summary);
-        reviewContent.sendKeys(content);
-        wait.until(ExpectedConditions.visibilityOf(reviewRating1));
-        reviewRating1.click();
+        wait.until(ExpectedConditions.elementToBeClickable(txtReviewNick)).sendKeys(nick);
+        txtReviewSummary.sendKeys(summary);
+        txtReviewContent.sendKeys(content);
+        wait.until(ExpectedConditions.visibilityOf(txtReviewRating1));
+        txtReviewRating1.click();
         btnReviewSubmit.click();
 
 

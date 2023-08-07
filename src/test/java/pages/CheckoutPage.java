@@ -15,58 +15,55 @@ public class CheckoutPage extends BasePage {
 
 
     @FindBy(id = "customer-email")
-    protected WebElement inputEmail;
+    protected WebElement txtEmail;
     @FindBy(xpath = "//input[@name='firstname']")
-    protected WebElement intputFirstName;
+    protected WebElement txtFirstName;
     @FindBy(xpath = "//input[@name='lastname']")
-    protected WebElement inputLastName;
+    protected WebElement txtLastName;
     @FindBy(xpath = "//input[@name='street[0]']")
-    protected WebElement inputAddress;
+    protected WebElement txtAddress;
     @FindBy(xpath = "//input[@name='city']")
-    protected WebElement inputCity;
+    protected WebElement txtCity;
     @FindBy(xpath = "//select[@name='region_id']")
-    protected WebElement selectRegion;
+    protected WebElement ddlRegion;
     @FindBy(xpath = "//input[@name='postcode']")
-    protected WebElement inputZipCode;
+    protected WebElement txtZipCode;
     @FindBy(xpath = "//select[@name='country_id']")
-    protected WebElement selectCountry;
+    protected WebElement ddlCountry;
     @FindBy(xpath = "//input[@name='telephone']")
-    protected WebElement inputPhone;
+    protected WebElement txtPhone;
     @FindBy(xpath = "(//input[@class='radio'])[1]")
-    protected WebElement radioFlatRate;
+    protected WebElement rdoFlatRate;
     @FindBy(xpath = "//button[@data-role='opc-continue']")
     protected WebElement btnContinue;
     @FindBy(id = "billing-address-same-as-shipping-checkmo")
     protected WebElement chkConfirmAddres;
     @FindBy(xpath = "//button[@title='Place Order']")
     protected WebElement btnPlaceOrder;
-    @FindBy(xpath = "//span[@class='base']")
-    protected WebElement purchaseConfirmation;
     @FindBy(xpath = "//body[@aria-busy='true']")
     protected WebElement placeOrderLoader;
 
 
     public void setShippingAddress(String email, String name, String lastName, String address, String city, String state,
                                    String zipCode, String phone) {
-        wait.until(ExpectedConditions.visibilityOf(inputEmail)).sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOf(txtEmail)).sendKeys(email);
 
-        wait.until(ExpectedConditions.visibilityOf(intputFirstName)).sendKeys(name);
-        wait.until(ExpectedConditions.visibilityOf(inputLastName)).sendKeys(lastName);
-        wait.until(ExpectedConditions.visibilityOf(inputAddress)).sendKeys(address);
-        wait.until(ExpectedConditions.visibilityOf(inputCity)).sendKeys(city);
+        wait.until(ExpectedConditions.visibilityOf(txtFirstName)).sendKeys(name);
+        wait.until(ExpectedConditions.visibilityOf(txtLastName)).sendKeys(lastName);
+        wait.until(ExpectedConditions.visibilityOf(txtAddress)).sendKeys(address);
+        wait.until(ExpectedConditions.visibilityOf(txtCity)).sendKeys(city);
 
-        Select select = new Select(selectRegion);
+        Select select = new Select(ddlRegion);
         select.selectByVisibleText(state);
 
-        inputZipCode.sendKeys(zipCode);
-        inputPhone.sendKeys(phone);
+        txtZipCode.sendKeys(zipCode);
+        txtPhone.sendKeys(phone);
 
-        wait.until(ExpectedConditions.elementToBeClickable(radioFlatRate)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(rdoFlatRate)).click();
         btnContinue.click();
         wait.until(ExpectedConditions.invisibilityOf(placeOrderLoader));
         wait.until(ExpectedConditions.visibilityOf(btnPlaceOrder)).click();
         wait.until(ExpectedConditions.invisibilityOf(placeOrderLoader));
-        wait.until(ExpectedConditions.visibilityOf(purchaseConfirmation));
     }
 
 

@@ -21,7 +21,7 @@ public class HeaderPage extends BasePage {
 
 
     @FindBy(id = "search")
-    protected WebElement inputSearch;
+    protected WebElement txtSearch;
     @FindBy(xpath = "//span[@class='base']")
     protected WebElement titlePage;
     @FindBy(id = "ui-id-3")
@@ -106,8 +106,8 @@ public class HeaderPage extends BasePage {
     }
 
     public void searchFor(String itemName) {
-        wait.until(ExpectedConditions.elementToBeClickable(inputSearch)).sendKeys(itemName);
-        inputSearch.sendKeys(Keys.ENTER);
+        wait.until(ExpectedConditions.elementToBeClickable(txtSearch)).sendKeys(itemName);
+        txtSearch.sendKeys(Keys.ENTER);
     }
 
     public void goToCheckout() {

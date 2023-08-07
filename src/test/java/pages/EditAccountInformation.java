@@ -13,11 +13,11 @@ public class EditAccountInformation extends BasePage {
     @FindBy(id = "change-password")
     protected WebElement chkChangePassword;
     @FindBy(id = "current-password")
-    protected WebElement inputCurrentPassword;
+    protected WebElement txtCurrentPassword;
     @FindBy(id = "password")
-    protected WebElement inputPassword;
+    protected WebElement txtPassword;
     @FindBy(id = "password-confirmation")
-    protected WebElement inputPasswordConfirm;
+    protected WebElement txtPasswordConfirm;
     @FindBy(xpath = "//button[@title='Save']")
     protected WebElement btnSave;
 
@@ -28,9 +28,9 @@ public class EditAccountInformation extends BasePage {
 
     public void setNewPassword(String currentPassword, String newPassword) {
 
-        wait.until(ExpectedConditions.elementToBeClickable(inputCurrentPassword)).sendKeys(currentPassword);
-        inputPassword.sendKeys(newPassword);
-        inputPasswordConfirm.sendKeys(newPassword);
+        wait.until(ExpectedConditions.elementToBeClickable(txtCurrentPassword)).sendKeys(currentPassword);
+        txtPassword.sendKeys(newPassword);
+        txtPasswordConfirm.sendKeys(newPassword);
         btnSave.click();
     }
 

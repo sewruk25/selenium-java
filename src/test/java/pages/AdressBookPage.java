@@ -16,17 +16,17 @@ public class AdressBookPage extends BasePage {
     @FindBy(xpath = "//button[@title='Add New Address']")
     protected WebElement btnNewAddress;
     @FindBy(id = "telephone")
-    protected WebElement inputPhoneNumber;
+    protected WebElement txtPhoneNumber;
     @FindBy(id = "street_1")
-    protected WebElement inputStreet;
+    protected WebElement txtStreet;
     @FindBy(id = "city")
-    protected WebElement inputCity;
+    protected WebElement txtCity;
     @FindBy(id = "region_id")
-    protected WebElement selectRegion;
+    protected WebElement ddlRegion;
     @FindBy(id = "zip")
-    protected WebElement inputZipCode;
+    protected WebElement txtZipCode;
     @FindBy(id = "country")
-    protected WebElement selectCountry;
+    protected WebElement ddlCountry;
     @FindBy(xpath = "//button[@class='action save primary']")
     protected WebElement btnSave;
 
@@ -36,13 +36,13 @@ public class AdressBookPage extends BasePage {
     }
 
     public void setNewAddress(String phoneNumber, String street, String city, String zipCode, String country, String region) {
-        wait.until(ExpectedConditions.visibilityOf(inputPhoneNumber)).sendKeys(phoneNumber);
-        inputStreet.sendKeys(street);
-        inputCity.sendKeys(city);
-        inputZipCode.sendKeys(zipCode);
-        Select addressCountry = new Select(selectCountry);
+        wait.until(ExpectedConditions.visibilityOf(txtPhoneNumber)).sendKeys(phoneNumber);
+        txtStreet.sendKeys(street);
+        txtCity.sendKeys(city);
+        txtZipCode.sendKeys(zipCode);
+        Select addressCountry = new Select(ddlCountry);
         addressCountry.selectByVisibleText(country);
-        Select addressRegion = new Select(selectRegion);
+        Select addressRegion = new Select(ddlRegion);
         addressRegion.selectByVisibleText(region);
         btnSave.click();
     }

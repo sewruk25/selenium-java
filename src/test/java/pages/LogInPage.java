@@ -12,16 +12,16 @@ public class LogInPage extends BasePage {
     }
 
     @FindBy(id = "email")
-    protected WebElement inputEmail;
+    protected WebElement txtEmail;
     @FindBy(id = "pass")
-    protected WebElement inputPassword;
+    protected WebElement txtPassword;
     @FindBy(id = "send2")
     protected WebElement btnSignIn;
 
 
     public void signIn(String login, String password) {
-        wait.until(ExpectedConditions.elementToBeClickable(inputEmail)).sendKeys(login);
-        inputPassword.sendKeys(password);
+        wait.until(ExpectedConditions.elementToBeClickable(txtEmail)).sendKeys(login);
+        txtPassword.sendKeys(password);
         btnSignIn.click();
     }
 
