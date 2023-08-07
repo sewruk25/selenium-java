@@ -32,7 +32,7 @@ public class HeaderTest {
     }
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void verifyLinking(String url) {
+    public void testNavMenuLinks(String url) {
         headerPage.visit(url);
         headerPage.goToWhatsNew();
         headerPage.titleAssert(PageTitleUtils.WHATS_NEW);

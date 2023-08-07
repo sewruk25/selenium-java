@@ -3,14 +3,13 @@ package test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.*;
 import utility.ReadXLSdata;
 import utils.PageTitleUtils;
 
-public class OfflineShoppingTest {
+public class ShoppingProcessTest {
 
     HeaderPage headerPage;
     SearchResultsPage searchResultsPage;
@@ -37,7 +36,7 @@ public class OfflineShoppingTest {
 
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void offlineShopingProcess(String url, String itemName, String email, String name, String lastName, String address,
+    public void testOfflineShoppingProcess(String url, String itemName, String email, String name, String lastName, String address,
                                       String city, String state, String zipCode, String phone) {
         headerPage.visit(url);
         headerPage.searchFor(itemName);

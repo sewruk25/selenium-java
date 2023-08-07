@@ -36,7 +36,7 @@ public class LogInTest {
 
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void signIn(String url, String login, String password) {
+    public void testLogIn(String url, String login, String password) {
         logInPage.visit(url);
         logInPage.signIn(login, password);
         headerPage.titleAssert(PageTitleUtils.MY_ACCOUNT);

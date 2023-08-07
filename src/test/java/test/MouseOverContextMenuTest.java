@@ -31,7 +31,7 @@ public class MouseOverContextMenuTest {
     }
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void hoverToJackets(String url) {
+    public void testHoverToJackets(String url) {
         headerPage.visit(url);
         headerPage.moveToJacketUsingHover();
     }

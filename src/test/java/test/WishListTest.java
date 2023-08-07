@@ -37,7 +37,7 @@ public class WishListTest {
     }
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void addToWishList(String url, String login, String password) throws InterruptedException {
+    public void testAddToWishList(String url, String login, String password) throws InterruptedException {
         mainPage.visit(url);
         mainPage.pointAtFirstLatest();
         mainPage.addToWishList();

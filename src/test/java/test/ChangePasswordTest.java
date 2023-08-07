@@ -38,7 +38,7 @@ public class ChangePasswordTest {
 
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void changePassword(String url, String login, String password, String listOption, String currentPassword,
+    public void testChangePassword(String url, String login, String password, String listOption, String currentPassword,
                                String newPassword) {
         logInPage.visit(url);
         logInPage.signIn(login, password);

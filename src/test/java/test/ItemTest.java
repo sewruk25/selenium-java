@@ -33,7 +33,7 @@ public class ItemTest {
     }
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void addToCartAndVerifyPrice(String url, String size, String color, String qnt) {
+    public void testPriceCount(String url, String size, String color, String qnt) {
         itemPage.visit(url);
         itemPage.setupAndAddToCartWithAssertions(size, color, qnt);
         headerPage.showCart();

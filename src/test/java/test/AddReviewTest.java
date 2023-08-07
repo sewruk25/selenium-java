@@ -9,13 +9,11 @@ import org.testng.annotations.Test;
 import pages.*;
 import utility.ReadXLSdata;
 
-public class AddReviewTest extends BaseTest{
-    MainPage mainPage;
+public class AddReviewTest {
+
     HeaderPage headerPage;
     SearchResultsPage searchResultsPage;
     ItemPage itemPage;
-    CheckoutPage checkOutPage;
-
 
 
     @BeforeMethod
@@ -24,22 +22,21 @@ public class AddReviewTest extends BaseTest{
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        mainPage = new MainPage(driver);
         headerPage = new HeaderPage(driver);
         searchResultsPage = new SearchResultsPage(driver);
         itemPage = new ItemPage(driver);
-        checkOutPage = new CheckoutPage(driver);
+
 
     }
+
     @AfterMethod
-    public void teardown(){
+    public void teardown() {
         headerPage.quit();
     }
 
 
-
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void writeReview(String url, String itemname, String nick, String summary, String content) {
+    public void testAddReview(String url, String itemname, String nick, String summary, String content) {
         headerPage.visit(url);
         headerPage.searchFor(itemname);
         searchResultsPage.selectFirstResult();
