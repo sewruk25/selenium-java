@@ -15,6 +15,8 @@ public class ShoppingProcessTest {
     SearchResultsPage searchResultsPage;
     ItemPage itemPage;
     CheckoutPage checkOutPage;
+    LogInPage logInPage;
+    ShoppingFiltersPage shoppingFiltersPage;
 
     @BeforeMethod
     public void setup() {
@@ -26,6 +28,8 @@ public class ShoppingProcessTest {
         searchResultsPage = new SearchResultsPage(driver);
         itemPage = new ItemPage(driver);
         checkOutPage = new CheckoutPage(driver);
+        logInPage = new LogInPage(driver);
+        shoppingFiltersPage = new ShoppingFiltersPage(driver);
 
     }
 
@@ -46,6 +50,21 @@ public class ShoppingProcessTest {
         headerPage.goToCheckout();
         checkOutPage.setShippingAddress(email, name, lastName, address, city, state, zipCode, phone);
         headerPage.titleAssert(PageTitleUtils.PURCHASE_CONFIRMATION);
+    }
+    @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
+    public void testOnlineShoppingProcess(String url, String login, String password){
+        logInPage.visit(url);
+        logInPage.signIn(login, password);
+        headerPage.goToSale();
+        searchResultsPage.hoodiesAndSweatShirts();
+        shoppingFiltersPage.setColor();
+        shoppingFiltersPage.setPirce();
+        searchResultsPage.selectFirstResult();
+
+
+
+
+
     }
 
 

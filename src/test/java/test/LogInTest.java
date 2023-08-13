@@ -29,10 +29,10 @@ public class LogInTest {
 
     }
 
-    @AfterMethod
-    public void teardown() {
-        headerPage.quit();
-    }
+//    @AfterMethod
+//    public void teardown() {
+//        headerPage.quit();
+//    }
 
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
