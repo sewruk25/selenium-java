@@ -45,7 +45,7 @@ public class ShoppingProcessTest {
         headerPage.visit(url);
         headerPage.searchFor(itemName);
         searchResultsPage.selectFirstResult();
-        itemPage.setupAndAddToCart();
+        itemPage.setupAndAddToCartBlackL();
         headerPage.showCart();
         headerPage.goToCheckout();
         checkOutPage.setShippingAddress(email, name, lastName, address, city, state, zipCode, phone);
@@ -57,15 +57,18 @@ public class ShoppingProcessTest {
         logInPage.signIn(login, password);
         headerPage.goToSale();
         searchResultsPage.hoodiesAndSweatShirts();
-        shoppingFiltersPage.setColor();
         shoppingFiltersPage.setPirce();
         searchResultsPage.selectFirstResult();
-
-
+        itemPage.setupAndAddToCartBlueXL();
+        headerPage.showCart();
+        headerPage.goToCheckout();
+        checkOutPage.acceptShippingMethodAndPlaceOrder();
 
 
 
     }
+
+
 
 
 }

@@ -22,11 +22,13 @@ public class ItemPage extends BasePage {
     protected WebElement selectedSize;
     @FindBy(xpath = "(//span[@class='swatch-attribute-selected-option'])[2]")
     protected WebElement selectedColor;
-    @FindBy(id = "option-label-size-143-item-169")
-    protected WebElement selectSize;
-    @FindBy(id = "option-label-color-93-item-50")
+    @FindBy(xpath = "//div[@option-label='L']")
+    protected WebElement selectSizeL;
+    @FindBy(xpath = "//div[@option-label='XL']")
+    protected WebElement selectSizeXL;
+    @FindBy(xpath = "//div[@option-label='Blue']")
     protected WebElement selectColorBlue;
-    @FindBy(id = "option-label-color-93-item-49")
+    @FindBy(xpath = "//div[@option-label='Black']")
     protected WebElement selectColorBlack;
     @FindBy(id = "qty")
     protected WebElement txtQuantity;
@@ -47,7 +49,7 @@ public class ItemPage extends BasePage {
 
 
     public void setupAndAddToCartWithAssertions(String size, String color, String qnt) {
-        wait.until(ExpectedConditions.elementToBeClickable(selectSize)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectSizeL)).click();
         Assert.assertEquals(selectedSize.getText(), size);
         selectColorBlue.click();
         Assert.assertEquals(selectedColor.getText(), color);
@@ -56,8 +58,8 @@ public class ItemPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(btnAddToCart)).click();
     }
 
-    public void setupAndAddToCart() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectSize)).click();
+    public void setupAndAddToCartBlackL() {
+        wait.until(ExpectedConditions.elementToBeClickable(selectSizeL)).click();
         selectColorBlack.click();
         wait.until(ExpectedConditions.elementToBeClickable(btnAddToCart)).click();
     }
@@ -75,7 +77,11 @@ public class ItemPage extends BasePage {
         txtReviewRating1.click();
         btnReviewSubmit.click();
 
-
+    }
+    public void setupAndAddToCartBlueXL() {
+        wait.until(ExpectedConditions.elementToBeClickable(selectSizeXL)).click();
+        selectColorBlue.click();
+        wait.until(ExpectedConditions.elementToBeClickable(btnAddToCart)).click();
     }
 
 

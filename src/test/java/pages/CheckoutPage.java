@@ -66,5 +66,11 @@ public class CheckoutPage extends BasePage {
         wait.until(ExpectedConditions.invisibilityOf(placeOrderLoader));
     }
 
+    public void acceptShippingMethodAndPlaceOrder(){
+        wait.until(ExpectedConditions.visibilityOf(btnContinue)).click();
+        wait.until(ExpectedConditions.invisibilityOf(placeOrderLoader));
+        wait.until(ExpectedConditions.visibilityOf(btnPlaceOrder)).click();
+        wait.until(ExpectedConditions.invisibilityOf(placeOrderLoader));
+    }
 
 }
