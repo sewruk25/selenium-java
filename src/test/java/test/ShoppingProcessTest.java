@@ -41,7 +41,7 @@ public class ShoppingProcessTest {
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
     public void testOfflineShoppingProcess(String url, String itemName, String email, String name, String lastName, String address,
-                                      String city, String state, String zipCode, String phone) {
+                                      String city, String state, String zipCode, String phone) throws InterruptedException {
         headerPage.visit(url);
         headerPage.searchFor(itemName);
         searchResultsPage.selectFirstResult();
@@ -52,7 +52,7 @@ public class ShoppingProcessTest {
         headerPage.titleAssert(PageTitleUtils.PURCHASE_CONFIRMATION);
     }
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
-    public void testOnlineShoppingProcess(String url, String login, String password){
+    public void testOnlineShoppingProcess(String url, String login, String password) throws InterruptedException {
         logInPage.visit(url);
         logInPage.signIn(login, password);
         headerPage.goToSale();

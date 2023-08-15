@@ -110,7 +110,8 @@ public class HeaderPage extends BasePage {
         txtSearch.sendKeys(Keys.ENTER);
     }
 
-    public void goToCheckout() {
+    public void goToCheckout() throws InterruptedException {
+        Thread.sleep(300);
         wait.until(ExpectedConditions.visibilityOf(btnToCheckoutCart)).click();
     }
 

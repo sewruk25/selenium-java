@@ -40,7 +40,7 @@ public class AddAdditionalAddressTest {
 
     @Test(dataProviderClass = ReadXLSdata.class, dataProvider = "testdata")
     public void testAddAddress(String url, String login, String password, String listOption, String phoneNumber,
-                                     String street, String city, String zipCode, String country, String region) {
+                                     String street, String city, String zipCode, String country, String region) throws InterruptedException {
         logInPage.visit(url);
         logInPage.signIn(login, password);
         myAccountSideBarPage.selectFromSider(String.valueOf(listOption));
